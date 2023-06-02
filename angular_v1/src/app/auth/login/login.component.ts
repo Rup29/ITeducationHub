@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/service/user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,7 +8,7 @@ import { FormControl,FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit{
   logForm!: FormGroup;
-    constructor(){
+    constructor(public userServide : UserService){
      
     }
     ngOnInit(): void {
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit{
     }
 
     loginForm(data:any){
-          console.log(data);
+          this.userServide.login(data);
           
     }
 }
